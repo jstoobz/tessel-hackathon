@@ -33,20 +33,24 @@ servo.on('ready', function() {
       servo.move(servo1, positionOne);
 
       // Increment by 10% (~18 deg for a normal servo)
-      positionOne += 0.8;
+      positionOne += Math.random();
+      // positionOne += 0.8;
       if (positionOne > 1) {
         positionOne = 0; // Reset servo position
       }
-    }, 2700); // Every 500 milliseconds
+    }, 100); // Every 500 milliseconds
     setInterval(function() {
       console.log('PositionTwo (in range 0-1):', positionTwo);
 
       servo.move(servo2, positionTwo);
 
-      positionTwo += 0.1;
+      positionTwo += Math.random();
+      // positionTwo += 0.6;
       if (positionTwo > 1) {
         positionTwo = 0; // Reset servo position
       }
-    }, 300); // Every 500 milliseconds
+    }, 100); // Every 500 milliseconds
   });
 });
+
+module.exports = servo;
