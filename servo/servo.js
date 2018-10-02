@@ -28,21 +28,25 @@ servo.on('ready', function() {
   servo.configure(servo1, 0.05, 0.12, function() {
     setInterval(function() {
       console.log('PositionOne (in range 0-1):', positionOne);
-      console.log('PositionTwo (in range 0-1):', positionTwo);
+
       //  Set servo #1 to position pos.
       servo.move(servo1, positionOne);
-      servo.move(servo2, positionTwo);
 
       // Increment by 10% (~18 deg for a normal servo)
       positionOne += 0.8;
       if (positionOne > 1) {
         positionOne = 0; // Reset servo position
       }
+    }, 2700); // Every 500 milliseconds
+    setInterval(function() {
+      console.log('PositionTwo (in range 0-1):', positionTwo);
+
+      servo.move(servo2, positionTwo);
 
       positionTwo += 0.1;
       if (positionTwo > 1) {
         positionTwo = 0; // Reset servo position
       }
-    }, 500); // Every 500 milliseconds
+    }, 300); // Every 500 milliseconds
   });
 });
